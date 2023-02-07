@@ -1,2 +1,7 @@
-ngrok-auth: "auth https://dashboard.ngrok.com/get-started/your-authtoken"
+# Insert your ngrok auth token below
+# You can find one at https://dashboard.ngrok.com/get-started/your-authtoken
+ngrok-auth: "auth"
+
+# The port of dynmap webserver
+# Default is 8123, leave it as is if you didn't change the dynmap config
 dynmap-port: 8123

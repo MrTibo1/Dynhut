@@ -1,5 +1,6 @@
 name: Dynhut
 version: '${project.version}'
+description: Use dynmap on Minehut using ngrok
 main: be.mrtibo.dynhut.Dynhut
 api-version: 1.19
 depend:
