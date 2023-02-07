@@ -1,0 +1,10 @@
+name: Dynhut
+version: '${project.version}'
+main: be.mrtibo.dynhut.Dynhut
+api-version: 1.19
+depend:
+  - dynmap
+commands:
+  map:
+    description: Get the public ngrok url of the map
+    usage: /map

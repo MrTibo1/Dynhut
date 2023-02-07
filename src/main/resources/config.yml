@@ -1,0 +1,2 @@
+ngrok-auth: "auth https://dashboard.ngrok.com/get-started/your-authtoken"
+dynmap-port: 8123
