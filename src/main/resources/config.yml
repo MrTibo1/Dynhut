@@ -5,3 +5,6 @@ ngrok-auth: "auth"
 # The port of dynmap webserver
 # Default is 8123, leave it as is if you didn't change the dynmap config
 dynmap-port: 8123
+
+# Whether to send the dynmap url to the player on join or not
+send-on-join: true

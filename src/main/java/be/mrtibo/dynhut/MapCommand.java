@@ -8,16 +8,16 @@ import org.jetbrains.annotations.NotNull;
 
 public class MapCommand implements CommandExecutor {
 
-    Dynhut main;
+    Dynhut dynhut;
 
     public MapCommand(Dynhut main){
-        this.main = main;
+        this.dynhut = main;
         main.getCommand("map").setExecutor(this);
     }
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        sender.sendMessage("Dynmap is available at: " + ChatColor.GREEN + main.getPublicUrl());
+        sender.sendMessage("Dynmap is available at: " + ChatColor.GREEN + dynhut.getPublicUrl());
         return true;
     }
 }

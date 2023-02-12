@@ -9,3 +9,10 @@ commands:
   map:
     description: Get the public ngrok url of the map
     usage: /map
+  dynhut:
+    description: Retry starting the ngrok process
+    usage: /dynhut
+    permission: dynhut.admin
+permissions:
+  dynhut.admin:
+    default: op

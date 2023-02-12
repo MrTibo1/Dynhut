@@ -23,6 +23,8 @@ public final class Dynhut extends JavaPlugin {
 
         saveDefaultConfig();
         new MapCommand(this);
+        new DynhutCommand(this);
+        new JoinListener(this);
 
         startHttpTunnel();
 
@@ -34,6 +36,7 @@ public final class Dynhut extends JavaPlugin {
             client.setAuthToken(getConfig().getString("ngrok-auth"));
             // Prevent log spam
             Logger.getLogger(String.valueOf(NgrokProcess.class)).setLevel(Level.OFF);
+            Logger.getLogger(String.valueOf(NgrokClient.class)).setLevel(Level.OFF);
 
             createTunnel = new CreateTunnel.Builder()
                     .withProto(Proto.HTTP)
@@ -46,7 +49,7 @@ public final class Dynhut extends JavaPlugin {
             getLogger().info("Dynmap is now available at " + publicUrl);
             return true;
         } catch (NgrokException e){
-            getLogger().severe("Unable to start ngrok process!");
+            getLogger().severe("Unable to start ngrok process! Retry with /dynhut");
             getLogger().severe(e.getNgrokError());
             return false;
         }
@@ -54,10 +57,9 @@ public final class Dynhut extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        if(tunnel != null){
-            client.disconnect(publicUrl);
-            getLogger().info("Disconnected ngrok agent");
-        }
+        client.disconnect(publicUrl);
+        client.kill();
+        getLogger().info("Disconnected ngrok agent");
     }
 
     public String getPublicUrl() {
